@@ -1,0 +1,11 @@
+{% extends 'books/base.html' %}
+{% block body %}
+    <h2>Contact Form</h2>
+    <p>Please fill in the form to Contact us</p>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+{% endblock body %}
+    
