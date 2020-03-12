@@ -12,3 +12,8 @@ class ContactForm(forms.Form):
     def send_mail(self):
         logging.info("Sending Email to customer service")
         message="From {0}\n{1}".format(self.cleaned_data['name'],self.cleaned_data['message'],)
+
+        send_mail("Site Message",message,"site@booktime.domain",
+        ['customerservice@booktime.domain'],
+        fail_silently=False
+        )
