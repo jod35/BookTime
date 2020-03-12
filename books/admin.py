@@ -6,13 +6,13 @@ from django.utils.html import format_html
 class ProductAdmin(admin.ModelAdmin):
     list_display=('name','slug','in_stock','price')
     list_filter=('active','in_stock','date_updated')
-    list_editable=('in_stock')
+    list_editable=('in_stock',)
     search_fields=('name',)
-    prepopulated_fields={'slug':"name"}
+    prepopulated_fields={'slug':("name",)}
 
 class ProductImageAdmin(admin.ModelAdmin):
     list_display=('thumbnail_tag','product_name')
-    readonly_fields=('thumbnails',)
+    readonly_fields=('thumbnail',)
     search_fields=('product__name',)
 
 
