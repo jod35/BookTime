@@ -4,7 +4,7 @@
     <p>Please fill in the form to Contact us</p>
     <form action="" method="post">
         {% csrf_token %}
-        {{ form }}
+        {{ form.as_p }}
         <button type="submit" class="btn btn-primary">Send</button>
     </form>
 {% endblock body %}
