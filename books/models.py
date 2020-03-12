@@ -17,3 +17,13 @@ class Product(models.Model):
 class ProductImage(models.Model):
     product=models.ForeignKey(Product,on_delete=models.CASCADE)
     image=models.ImageField(upload_to='product_images')
+    def __str__(self):
+        return self.image
+
+class ProductTag(models.Model):
+    products=models.ManyToManyField(Product,blank=True)
+    name=models.CharField(max_length=32)
+    slug=models.SlugField(max_length=48)
+    description=models.TextField(blank=True)
+    active=models.BooleanField(default=True)
+    
