@@ -15,6 +15,6 @@ class ContactUsView(FormView):
     form_class=forms.ContactForm
     success_url='/'
 
-    def form_valid():
+    def form_valid(self,form):
         form.send_mail()
         return super().form_valid(form)
