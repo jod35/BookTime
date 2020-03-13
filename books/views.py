@@ -21,21 +21,10 @@ class ContactUsView(FormView):
         form.send_mail()
         return super().form_valid(form)
 
-class ProductListView(ListView):
-    template_name='books/product_list.html'
-    paginate_by=4
 
+def product_list(request):
+    context={
+        'products':models.Product.objects.all()
+    }
+    return render(request,'books/product_list.html',context)
 
-    def query_set(self):
-        tag=self.kwargs['tag']
-        self.tag=None
-
-        if tag !='all':
-            self.tag=get_object_or_404(models.ProductTag,slug=tag)
-
-        if self.tag:
-            products=models.Product.objects.active().filter(tags=self.tags)
-        else:
-            products=models.Products.objects.active()
-
-        return products.order_by('name')

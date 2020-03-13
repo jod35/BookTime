@@ -9,7 +9,6 @@ class ProductAdmin(admin.ModelAdmin):
     list_editable=('in_stock',)
     search_fields=('name',)
     prepopulated_fields={'slug':("name",)}
-    autocomplete_fields=('tags',)
 
 class ProductImageAdmin(admin.ModelAdmin):
     list_display=('thumbnail_tag','product_name')
