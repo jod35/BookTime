@@ -6,5 +6,5 @@ app_name='bookstore'
 
 urlpatterns = [
     path('',views.BookListView.as_view(),name='home'),
-    path('<str:title>/details',views.book_details,name='details'),
+    path('<int:id>/details',views.book_details,name='details'),
 ]
