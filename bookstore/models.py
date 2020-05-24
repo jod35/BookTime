@@ -8,9 +8,9 @@ class Book(models.Model):
     written=models.DateField()
     created=models.DateTimeField(default=timezone.now)
     uploaded_by=models.ForeignKey(User,on_delete=models.CASCADE)
-    thumnail=models.ImageField(upload_to='images')
+    thumbnail=models.ImageField(upload_to='images',default='default.jpeg')
 
     def __str__(self):
-        return f"{self.name} by {self.author}"
+        return f"{self.title} by {self.author}"
 
 
