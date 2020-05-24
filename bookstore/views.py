@@ -7,7 +7,7 @@ class BookListView(ListView):
     template_name='bookstore/index.html'
     queryset=Book.objects.all()
     paginate_by=5
-    context_object_name=books
+    context_object_name='books'
 
 
 
