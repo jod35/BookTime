@@ -1,0 +1,11 @@
+{% extends 'bookstore/base.html' %}
+
+{% block body %}
+    <main role="main" container>
+       <div class="jumbotron">
+            <h1>{{book.title}}</h1>
+            <p>Published by <b>{{book.author}} in {{book.written}}</b></p>
+        </div>
+    </main>
+{% endblock body %}
+    

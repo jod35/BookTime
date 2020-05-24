@@ -11,12 +11,12 @@ class BookListView(ListView):
 
 
 
-def book_details(request,id):
-    book=Book.objects.objects.filter(id=id).first()
+def book_details(request,title):
+    book=Book.objects.get(title=title)
     context={
         'book':book
     }
 
-    return render(request,'bookstore/book_detail.html')
+    return render(request,'bookstore/book_detail.html',context)
 
 
