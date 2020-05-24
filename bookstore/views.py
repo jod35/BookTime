@@ -20,3 +20,9 @@ def book_details(request,title):
     return render(request,'bookstore/book_detail.html',context)
 
 
+def loginView(request):
+    return render(request,'bookstore/login.html')
+
+
+def signUpView(request):
+    return render(request,'bookstore/register.html')
