@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import Book
 from django.views.generic import ListView
+from .forms import UserRegisterForm
+from django.contrib.auth.models import User
 
 
 class BookListView(ListView):
@@ -25,4 +27,8 @@ def loginView(request):
 
 
 def signUpView(request):
-    return render(request,'bookstore/register.html')
+    form=UserRegisterForm()
+    context={
+        'form':form
+    }
+    return render(request,'bookstore/register.html',context)

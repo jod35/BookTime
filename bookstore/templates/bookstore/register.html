@@ -1,6 +1,12 @@
 {% extends 'bookstore/base.html' %}
-
+{% load static %}
 {% block body %}
-    
+  <div class="container">
+      <h2 class="text-center">SignUp</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+    </form>
+  </div>
 {% endblock body %}
     
