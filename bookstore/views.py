@@ -5,9 +5,9 @@ from django.views.generic import ListView
 
 class BookListView(ListView):
     template_name='bookstore/index.html'
-    queryset=Book.objects.all()
+    model=Book
     paginate_by=3
-    context_object_name='books'
+    # context_object_name='books'
 
 
 
