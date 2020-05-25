@@ -48,15 +48,16 @@ def signUpView(request):
 @login_required
 def create_book(request):
 
-    form = BookCreationForm(request.POST)
+    form = BookCreationForm()
 
-    if form.is_valid():
-        form.save()
-        messages.success(request,'Book Added Successfully')
-        return redirect('bookstore:home')
-        
+    if request.method =='POST':
+        form=BookCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'Book Added Successfully')
+            return redirect('bookstore:home')
+    
 
-   
     context={
         'form':form
     }

@@ -19,7 +19,7 @@ class BookCreationForm(forms.ModelForm):
     written=forms.DateField(widget=DateInput)
     class Meta:
         model=Book
-        fields=('title','author','written','description','uploaded_by')
+        fields=('title','author','written','description','uploaded_by','thumbnail')
 
 
 
