@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -124,6 +125,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS=(os.path.join(BASE_DIR,'static'),)
 
+#crispy forms 
+CRISPY_TEMPLATE_PACK='bootstrap4'
 
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+
+
+#login settings
+
+LOGIN_REDIRECT_URL='bookstore:home'
