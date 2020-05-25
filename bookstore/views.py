@@ -23,13 +23,8 @@ def book_details(request,title):
     return render(request,'bookstore/book_detail.html',context)
 
 
-def loginView(request):
-    form=AuthenticationForm()
-
-    context={
-        'form':form
-    }
-    return render(request,'bookstore/login.html',context)
+def logout(request):
+    return render(request,'bookstore/loggedout.html')
 
 
 def signUpView(request):
