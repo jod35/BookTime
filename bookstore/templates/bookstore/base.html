@@ -9,16 +9,14 @@
     <meta name="generator" content="Jekyll v4.0.1">
     
     {% if title %}
-        BookTime |{{title}}
+        <title>BookTime |{{title}}</title>
     {% else %}
-        BookTime
+        <title>BookTime</title>
     {% endif %}
         
 
-
-    <!-- Bootstrap core CSS -->
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
+<link rel="stylesheet" href="{% static 'bookstore/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'bookstore/main.css ' %}">
 
 <meta name="theme-color" content="#563d7c">
 
@@ -50,14 +48,12 @@
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
+     
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'bookstore:register' %}">Sign Up</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">Sign Up</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Login</a>
+        <a class="nav-link " href="{% url 'bookstore:login' %}" tabindex="-1" aria-disabled="true">Login</a>
       </li>
      
     </ul>
