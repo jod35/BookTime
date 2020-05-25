@@ -4,6 +4,15 @@
 
   <h2 class="text-center text-primary">Recent Books</h2>
   <div class="container">
+    
+    {% if messages %}
+      {% for message in messages %}
+         {% if message.tags %}
+           <p class="alert alert-{{message.tags}}">{{message}}</p>
+         {% endif %}
+      {% endfor %}
+    {% endif %}
+      
     <!-- Example row of columns -->
     <div class="row">
      
