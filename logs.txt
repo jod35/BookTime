@@ -1,0 +1,46 @@
+0551f2c succesfully logged out
+9dd541e successfull user login
+18f1f14 successful user creation with the signup form
+26ba508 created the user registration form
+d2ec3d0 created the login and register views
+b04d2c9 added some styling with bootstrap
+9eb0848 fix (bug on detail page)
+63db15b trying to fix a bug in the book detail endpoint
+5ff56d9 successfully implemented pagination
+0a2ce35 added some pagination to the Book model
+588b669 created my first templates
+ba21f7f created first url confs and also allowed static files during development
+df59f3d created the booklist view and the book detail view
+0b36c6b created the static and template folders
+79517f5 set up a media directory for users to upload files
+5b72cb1 successfully created a book and stored it in the db
+f3df3cc created the book model and migrated to db
+3a9aa2e set up the database and created a suoeruser
+2a02506 created the bookstore application
+bcbab2c initial commit
+aa36649 created the product list template
+793570c created a product list view
+f1c0e0b customized the product image admin
+843bfbd simple customizations to the product image admin
+71b56c6 simple customizations to the product admin
+b3b6bf2 registered the models with the admin interface
+11fa81d ran a successful test on the active manager created
+8630d3a created an manager and its test
+8371818 wrote a test for the signal
+b075418 created a signal for creation of thumbnail if product image is uploaded
+222dc63 added thumbnail field to product image model
+2627ed7 created the product tag model
+becb26c created the product and the product image models
+3c7487a added some bootstrap styling to the form elements
+87d9194 project description
+fce4da7 project description
+e111501 first success console mail
+6ed6aee ran test for the contact-us page
+3d1cb2b created the urlconf and view for the contact us page
+2e99d6d created the contact form template
+e51b296 email backend
+5082578 first successful test on contact us form
+131da0f restructured the project
+f89a1d4 contact form
+ad43901 templates and their tests
+e0d6a89 initial commit with book app
