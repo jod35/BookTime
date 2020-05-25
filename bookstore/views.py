@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Book
 from django.views.generic import ListView
 from .forms import UserRegisterForm
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 
 
@@ -23,7 +24,12 @@ def book_details(request,title):
 
 
 def loginView(request):
-    return render(request,'bookstore/login.html')
+    form=AuthenticationForm()
+
+    context={
+        'form':form
+    }
+    return render(request,'bookstore/login.html',context)
 
 
 def signUpView(request):
@@ -34,7 +40,7 @@ def signUpView(request):
 
         if form.is_valid():
             form.save()
-            
+
     context={
         'form':form
     }
