@@ -28,6 +28,13 @@ def loginView(request):
 
 def signUpView(request):
     form=UserRegisterForm()
+
+    if request.method=='POST':
+        form=UserRegisterForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            
     context={
         'form':form
     }
