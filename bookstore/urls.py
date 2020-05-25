@@ -7,7 +7,7 @@ app_name='bookstore'
 
 urlpatterns = [
     path('',views.BookListView.as_view(),name='home'),
-    path('details/<str:title>/',views.book_details,name='details'),
+    path('details/<int:id>book/',views.book_details,name='details'),
     path('login/',auth_views.LoginView.as_view(),name='login'),
     path('logout/',auth_views.LogoutView.as_view(template_name='bookstore/loggedout.html'),name='logout'),
     path('register/',views.signUpView,name='register'),

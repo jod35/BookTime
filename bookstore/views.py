@@ -15,8 +15,8 @@ class BookListView(ListView):
 
 
 
-def book_details(request,title):
-    book=Book.objects.get(title=title)
+def book_details(request,id):
+    book=Book.objects.get(id=id)
     context={
         'book':book
     }
