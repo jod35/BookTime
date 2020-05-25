@@ -12,4 +12,5 @@ urlpatterns = [
     path('logout/',auth_views.LogoutView.as_view(template_name='bookstore/loggedout.html'),name='logout'),
     path('register/',views.signUpView,name='register'),
     path('add_book/',views.create_book,name="add_book"),
+    path('update/<int:id>/book/',views.update_book_info,name='update_book'),
 ]
