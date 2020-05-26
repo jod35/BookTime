@@ -1,12 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Book
 from django.views.generic import ListView
 from .forms import UserRegisterForm,BookCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.contrib import messages
 
 
+#List of all books
 class BookListView(ListView):
     template_name='bookstore/index.html'
     model=Book
@@ -14,20 +16,20 @@ class BookListView(ListView):
     # context_object_name='books'
 
 
-
-def book_details(request,title):
-    book=Book.objects.get(title=title)
+#Book Details
+def book_details(request,id):
+    book=Book.objects.get(id=id)
     context={
         'book':book
     }
 
     return render(request,'bookstore/book_detail.html',context)
 
-
+#logout
 def logout(request):
     return render(request,'bookstore/loggedout.html')
 
-
+#Signup View
 def signUpView(request):
     form=UserRegisterForm()
 
@@ -42,11 +44,32 @@ def signUpView(request):
     }
     return render(request,'bookstore/register.html',context)
 
+#Create A Book
 @login_required
 def create_book(request):
 
-    form = BookCreationForm()
+    form = BookCreationForm(request.POST)
+
+    if form.is_valid():
+        form.save()
+        messages.success(request,'Book Added Successfully')
+        return redirect('bookstore:home')
+        
+
+   
     context={
         'form':form
     }
     return render(request,'bookstore/add_book.html',context)
+
+
+#updatebook info
+@login_required
+def update_book_info(request,id):
+    book=Book.objects.get(id=id)
+
+    context={
+        'book':book
+    }
+
+    return render(request,'bookstore/update_book.html',context)

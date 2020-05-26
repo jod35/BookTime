@@ -4,16 +4,25 @@
 
   <h2 class="text-center text-primary">Recent Books</h2>
   <div class="container">
+    
+    {% if messages %}
+      {% for message in messages %}
+         {% if message.tags %}
+           <p class="alert alert-{{message.tags}}">{{message}}</p>
+         {% endif %}
+      {% endfor %}
+    {% endif %}
+      
     <!-- Example row of columns -->
     <div class="row">
      
      {% for book in page_obj %}
         <div class="col-md-4">
-            <img src="" alt="" width="50">
+            <img src="{{book.thumbnail}}" alt="book cover" width="50">
         <h2>{{book.title}}</h2>
         <p>Wriiten: {{book.written}}</p>
         <p>by: {{book.author}}</p>
-        <p><a class="btn btn-secondary" href="details/{{book.title}}/" role="button">View details &raquo;</a></p>
+        <p><a class="btn btn-secondary" href="details/{{book.id}}book/" role="button">View details &raquo;</a></p>
       </div>
      {% endfor %}
     </div>
