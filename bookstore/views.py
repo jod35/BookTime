@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from .models import Book
 from django.views.generic import ListView
-from .forms import UserRegisterForm
+from .forms import UserRegisterForm,BookCreationForm
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
 
@@ -40,3 +41,12 @@ def signUpView(request):
         'form':form
     }
     return render(request,'bookstore/register.html',context)
+
+@login_required
+def create_book(request):
+
+    form = BookCreationForm()
+    context={
+        'form':form
+    }
+    return render(request,'bookstore/add_book.html',context)
