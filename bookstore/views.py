@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Book
 from django.views.generic import ListView
-from .forms import UserRegisterForm,BookCreationForm
+from .forms import UserRegisterForm,BookCreationForm,ReviewForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -19,8 +19,13 @@ class BookListView(ListView):
 #Book Details
 def book_details(request,id):
     book=Book.objects.get(id=id)
+    tags=Book.tags.all()
+    form=ReviewForm()
+
     context={
-        'book':book
+        'form':form,
+        'book':book,
+        'tags':tags
     }
 
     return render(request,'bookstore/book_detail.html',context)
@@ -34,7 +39,7 @@ def signUpView(request):
     form=UserRegisterForm()
 
     if request.method=='POST':
-        form=UserRegisterForm(request.POST)
+        form=UserRegisterForm(request.POST,request.FILES)
 
         if form.is_valid():
             form.save()

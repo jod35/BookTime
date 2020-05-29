@@ -22,7 +22,7 @@
        <div class="d-flex justify-content-around">
         <div class="form jumbotron ">
             <h2>Add A book</h2>
-           <form action="" method="post">
+           <form action="" method="post" enctype="multipart/form-data">
                {% csrf_token %}
                {{form|crispy}}
                <input type="submit" value="Add Book" class="btn btn-primary">

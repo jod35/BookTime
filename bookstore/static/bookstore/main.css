@@ -1,3 +1,18 @@
 .form{
     width: 50%;
 }
+
+.book-desc-min{
+    padding: 20px;
+}
+
+.book-desc{
+    padding: 25px;
+}
+.review-form{
+    padding: 25px;
+    /* background-color: white;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.308);
+    width: 95%;
+    margin: auto; */
+}
