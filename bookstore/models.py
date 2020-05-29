@@ -20,7 +20,7 @@ class Book(models.Model):
 class Review(models.Model):
     name=models.CharField(max_length=25)
     comment=models.TextField()
-    Book=models.ForeignKey(Book,on_delete=models.CASCADE)
+    book=models.ForeignKey(Book,on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.name}'s Review"

@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'BookTime.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'bookTime',
+        'NAME':'booktime',
         'USER':'jona',
         'HOST':'127.0.0.1',
         'PASSWORD':'nathanoj35'
