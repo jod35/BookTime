@@ -37,6 +37,11 @@ def book_details(request,id):
             review_obj.book_id= id
             review_obj.save()
 
+            messages.success(request,"Review Added Successfully")
+
+
+            return form
+
     
 
     context={
