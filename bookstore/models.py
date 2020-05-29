@@ -1,8 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+from taggit.managers import TaggableManager
 
 class Book(models.Model):
+    tags=TaggableManager()
     title=models.CharField(max_length=40)
     author=models.CharField(max_length=25)
     written=models.DateField()
