@@ -19,8 +19,10 @@ class BookListView(ListView):
 #Book Details
 def book_details(request,id):
     book=Book.objects.get(id=id)
+    tags=Book.tags.all()
     context={
-        'book':book
+        'book':book,
+        'tags':tags
     }
 
     return render(request,'bookstore/book_detail.html',context)
@@ -34,7 +36,7 @@ def signUpView(request):
     form=UserRegisterForm()
 
     if request.method=='POST':
-        form=UserRegisterForm(request.POST)
+        form=UserRegisterForm(request.POST,request.FILES)
 
         if form.is_valid():
             form.save()
