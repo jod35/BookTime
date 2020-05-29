@@ -16,3 +16,13 @@
     width: 95%;
     margin: auto; */
 }
+.reviews{
+    padding: 30px;
+    background-color: lightgray;
+}
+.review{
+    background-color: white;
+    border-radius: 7px;
+    box-shadow: 5px 5px 5px darkgray;
+    padding: 20px;
+}

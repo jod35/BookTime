@@ -4,6 +4,13 @@
 
 {% block body %}
     <main role="main" class="jumbotron">
+        {% if messages %}
+        {% for message in messages %}
+           {% if message.tags %}
+             <p class="alert alert-{{message.tags}}">{{message}}</p>
+           {% endif %}
+        {% endfor %}
+      {% endif %}
        <div class="desc d-flex">
             <div class="book-desc-min">
                 <img src="{{book.thumbnail.url}}" alt="">
@@ -16,11 +23,13 @@
             
                 Tags:
                 {% for tag in tags %}
-                    <a href="#">{{tag}}</a>
+                    <a href="#">{{tag}}</a>,
                 {% endfor %}
             </div>   
         </div>
 
+        
+        {% if user.is_authenticated %}
         <div class="review-form">
             <h2>Add A Review</h2>
             <form action="" method="post">
@@ -28,6 +37,34 @@
                 {{ form |crispy }}
                 <input type="submit" value="Add Review" class="btn btn-primary btn-lg">
             </form>
+        </div>
+        {% endif %}
+            
+
+        <div class="reviews">
+            {% if reviews %}
+                    <h2 class="text-primary">Recent Reviews</h2>
+                    {% for review in reviews %}
+                        <div class="review">
+                            <h4 class="text-primary">{{ review.name }}</h4>
+                            <p>{{review.comment}}</p>
+                        </div>
+                        <br>
+                    {% endfor %}    
+            {% else %}
+                   <h2 class="text-primary">No Reviews Yet</h2>
+                   
+                   {% if user.is_authenticated %}
+                       <small class="text-primary">Please Add A Review</small>
+
+                    {% else %}
+                        <small class="text-info">Please Login To Add Reviews</small>
+                   {% endif %}
+
+
+                       
+            {% endif %}
+                        
         </div>
     </main>
 {% endblock body %}

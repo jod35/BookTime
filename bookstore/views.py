@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import Book
+from .models import Book,Review
 from django.views.generic import ListView
 from .forms import UserRegisterForm,BookCreationForm,ReviewForm
 from django.contrib.auth.forms import AuthenticationForm
@@ -21,11 +21,34 @@ def book_details(request,id):
     book=Book.objects.get(id=id)
     tags=Book.tags.all()
     form=ReviewForm()
+    reviews=Review.objects.filter(book_id=id).all()
+
+    if request.method == 'POST':
+        form=ReviewForm(request.POST)
+
+        if form.is_valid():
+            review_obj=form.save(commit=False)
+
+            # review_obj.id = id
+
+            # review_obj.save()
+            print(review_obj)
+
+            review_obj.book_id= id
+            review_obj.save()
+
+            messages.success(request,"Review Added Successfully")
+
+
+            return form
+
+    
 
     context={
         'form':form,
         'book':book,
-        'tags':tags
+        'tags':tags,
+        'reviews':reviews
     }
 
     return render(request,'bookstore/book_detail.html',context)
