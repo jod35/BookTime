@@ -1,24 +1,33 @@
 {% extends 'bookstore/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
 
 {% block body %}
-    <main role="main" container>
-       <div class="jumbotron desc`">
-            <img src="{{book.thumbnail.url}}" alt="">
-            <h1>{{book.title}}</h1>
-            <p>Published by <b>{{book.author}} in {{book.written}}</b></p>
-            <p>{{book.description}}</p> 
+    <main role="main" class="jumbotron">
+       <div class="desc d-flex">
+            <div class="book-desc-min">
+                <img src="{{book.thumbnail.url}}" alt="">
+            </div>
+
+            <div class="book-desc">
+                <h1>{{book.title}}</h1>
+                <p>Published by <b>{{book.author}} in {{book.written}}</b></p>
+                <p>{{book.description}}</p> 
             
-            Tags:
-            {% for tag in tags %}
-                <a href="#">{{tag}}</a>
-            {% endfor %}
-            <br>
-            <br>
-                
-            {% if book.uploaded_by   == user %}
-                 <a href="/update/{{book.id}}/book/" class="btn btn-info">Update Book Info</a>
-                 <a href="" class="btn btn-danger">Delete Book</a>
-            {% endif %}    
+                Tags:
+                {% for tag in tags %}
+                    <a href="#">{{tag}}</a>
+                {% endfor %}
+            </div>   
+        </div>
+
+        <div class="review-form">
+            <h2>Add A Review</h2>
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form |crispy }}
+                <input type="submit" value="Add Review" class="btn btn-primary btn-lg">
+            </form>
         </div>
     </main>
 {% endblock body %}

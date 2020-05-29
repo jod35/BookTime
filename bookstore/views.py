@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Book
 from django.views.generic import ListView
-from .forms import UserRegisterForm,BookCreationForm
+from .forms import UserRegisterForm,BookCreationForm,ReviewForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -20,7 +20,10 @@ class BookListView(ListView):
 def book_details(request,id):
     book=Book.objects.get(id=id)
     tags=Book.tags.all()
+    form=ReviewForm()
+
     context={
+        'form':form,
         'book':book,
         'tags':tags
     }

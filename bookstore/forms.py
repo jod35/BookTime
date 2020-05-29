@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
-from .models import Book
+from .models import Book,Review
 
 
 class DateInput(forms.DateInput):
@@ -22,6 +22,11 @@ class BookCreationForm(forms.ModelForm):
         fields=('title','author','written','description','uploaded_by','thumbnail')
 
 
+
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model=Review
+        fields=['name','comment']
 
 
 
