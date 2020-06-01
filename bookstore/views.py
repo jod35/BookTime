@@ -110,10 +110,10 @@ def update_book_info(request,id):
 
 def search_tag(request,tag):
 
-    books=Book.objects.filter(tags__name__in[tag])
+    books=Book.objects.filter(tags__name__in=[tag])
 
 
     context={
         'books':books
     }
-    return render(request,'bookstag.html',context)
+    return render(request,'bookstore/bookstag.html',context)

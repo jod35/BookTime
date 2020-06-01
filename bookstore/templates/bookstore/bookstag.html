@@ -1,0 +1,34 @@
+{% extends 'bookstore/base.html' %}
+{% load static %}
+{% block body %}
+
+ 
+ 
+    
+    {% if messages %}
+      {% for message in messages %}
+         {% if message.tags %}
+           <p class="alert alert-{{message.tags}}">{{message}}</p>
+         {% endif %}
+      {% endfor %}
+    {% endif %}
+      
+    <!-- Example row of columns -->
+    <div class="row jumbotron">
+     {% for book in page_obj %}
+        <div class="col-md-4">
+            <img src="{{book.thumbnail.url}}" alt="book cover" width="200">
+        <h3>{{book.title}}</h3>
+        <p>Wriiten: {{book.written}}</p>
+        <p>by: {{book.author}}</p>
+        <p><a class="btn btn-secondary" href="details/{{book.id}}book/" role="button">View details &raquo;</a></p>
+      </div>
+     {% endfor %}
+    </div>
+
+    <hr>
+
+  </div>
+  {% include 'bookstore/pagination.html' %}
+{% endblock body %}
+    
