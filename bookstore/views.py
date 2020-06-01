@@ -40,7 +40,7 @@ def book_details(request,id):
             messages.success(request,"Review Added Successfully")
 
 
-            return form
+            return redirect('bookstore:details')
 
     
 
@@ -52,6 +52,9 @@ def book_details(request,id):
     }
 
     return render(request,'bookstore/book_detail.html',context)
+
+
+
 
 #logout
 def logout(request):
@@ -102,3 +105,16 @@ def update_book_info(request,id):
     }
 
     return render(request,'bookstore/update_book.html',context)
+
+#fetch all books with a given tag
+
+def search_tag(request,tag):
+
+    books=Book.objects.filter(tags__name__in=[tag])
+
+
+    context={
+        'books':books,
+        'tag':tag
+    }
+    return render(request,'bookstore/bookstag.html',context)

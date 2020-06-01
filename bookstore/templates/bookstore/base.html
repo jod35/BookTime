@@ -51,9 +51,13 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
          
+          
+          {% if user.is_superuser %}
           <li class="nav-item active">
             <a class="nav-link" href="{% url 'bookstore:add_book' %}">Add A book</a>
           </li>
+          {% endif %}
+            
 
           <li class="nav-item active">
             <a class="nav-link" href="{% url 'bookstore:logout' %}">Logout</a>
