@@ -19,7 +19,7 @@ class BookListView(ListView):
 #Book Details
 def book_details(request,id):
     book=Book.objects.get(id=id)
-    tags=Book.tags.all()
+    tags=book.tags.all()
     form=ReviewForm()
     reviews=Review.objects.filter(book_id=id).all()
 
@@ -118,3 +118,11 @@ def search_tag(request,tag):
         'tag':tag
     }
     return render(request,'bookstore/bookstag.html',context)
+
+
+def users_books(request):
+    books=Book.objects.all()
+    context={
+        'books':books
+    }
+    return render(request,'bookstore/your_books.html',context)

@@ -31,8 +31,9 @@
 
         <ul class="list-group">
             <li class="list-group-item"><a href="{% url 'bookstore:home' %}">Home</a></li>
+            <li class="list-group-item"><a href="{% url 'bookstore:my_books' %}">Your Books</a></li>
             <li class="list-group-item"><a href="">Recently Added</a></li>
-            <li class="list-group-item"><a href="">Your Books</a></li>
+            <li class="list-group-item"><a href="{% url 'bookstore:my_books' %}>Your Books</a></li>
             {% if user.is_superuser %}
                 <li class="list-group-item"><a href="/admin/">Admin DashBoard</a></li>
             {% endif %}
