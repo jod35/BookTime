@@ -31,3 +31,7 @@ I am really a beginner and I am not so perfect. If interested, please contribute
 
 ## Author
 [Ssali Jonathan](https://github.com/jod35)
+
+![Demo Image 1](/demo-imgs/s1.png)
+
+![Demo Image 2](/demo-imgs/s2.png)
