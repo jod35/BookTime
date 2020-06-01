@@ -13,7 +13,7 @@
       {% endif %}
        <div class="desc d-flex">
             <div class="book-desc-min">
-                <img src="{{book.thumbnail.url}}" alt="">
+                <img src="{{book.thumbnail.url}}" alt="" width="300">
             </div>
 
             <div class="book-desc">
@@ -25,19 +25,33 @@
                 {% for tag in tags %}
                     <a href="/books/{{tag}}">{{tag}}</a>,
                 {% endfor %}
-            </div>   
+
+                {% if book.uploaded_by == user %}
+                    <div class="options">
+                        <a href="/update/{{book.id}}/book/" class="btn btn-info">Update Book Info</a>
+                        <a href="" class="btn btn-danger">Delete Book</a>
+                    </div>                
+                {% endif %}
+            </div>
+            
+           
+                   
         </div>
 
         
         {% if user.is_authenticated %}
-        <div class="review-form">
-            <h2>Add A Review</h2>
-            <form action="" method="post">
-                {% csrf_token %}
-                {{ form |crispy }}
-                <input type="submit" value="Add Review" class="btn btn-primary btn-lg">
-            </form>
-        </div>
+            
+            {% if book.uploaded_by != user %}
+            <div class="review-form">
+                <h2>Add A Review</h2>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form |crispy }}
+                    <input type="submit" value="Add Review" class="btn btn-primary btn-lg">
+                </form>
+            </div>
+            {% endif %}
+                
         {% endif %}
             
 

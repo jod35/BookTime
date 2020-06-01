@@ -14,4 +14,5 @@ urlpatterns = [
     path('add_book/',views.create_book,name="add_book"),
     path('update/<int:id>/book/',views.update_book_info,name='update_book'),
     path('books/<str:tag>/',views.search_tag,name='tag_results'),
+    path('mybooks/',views.users_books,name='my_books'),
 ]
