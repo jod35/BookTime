@@ -18,8 +18,10 @@ class BookListView(ListView):
 
 #Book Details
 def book_details(request,id):
-    book=Book.objects.get(id=id)
+    book=Book.objects.filter(id=id).first()
     tags=book.tags.all()
+
+
     form=ReviewForm()
     reviews=Review.objects.filter(book_id=id).all()
 
