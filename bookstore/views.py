@@ -114,6 +114,7 @@ def search_tag(request,tag):
 
 
     context={
-        'books':books
+        'books':books,
+        'tag':tag
     }
     return render(request,'bookstore/bookstag.html',context)
