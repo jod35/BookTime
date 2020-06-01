@@ -16,6 +16,10 @@
     width: 95%;
     margin: auto; */
 }
+.logged-out{
+    height: 80vh;
+    padding: 20%;
+}
 .reviews{
     padding: 30px;
     background-color: lightgray;

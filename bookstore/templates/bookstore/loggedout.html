@@ -1,8 +1,10 @@
 {% extends 'bookstore/base.html' %}
 {% block body %}
     <div class="jumbotron text-center">
+       <div class="logged-out">
         <h1>You have logged Out</h1>
         <small><a href="{% url 'bookstore:login' %}">Please Log In Again</a></small>
+       </div>
     </div>
 {% endblock body %}
     
