@@ -28,6 +28,8 @@ This is a simple web application for an imaginary book store. It built for learn
 ## Contributions
 I am really a beginner and I am not so perfect. If interested, please contribute so that we build an amazing product together.
 
+## Live Project
+The project is running live [here](https://bookstoreliveapp.herokuapp.com/)
 
 ## Author
 [Ssali Jonathan](https://github.com/jod35)
