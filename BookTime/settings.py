@@ -25,7 +25,7 @@ SECRET_KEY = '-wg=)o7xrap8j=syie27=s70ch_^%wl+&xbz3c6y3s2(a0o5oy'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+      'whitenoise.middleware.WhiteNoiseMiddleware',
 
 ROOT_URLCONF = 'BookTime.urls'
 
@@ -78,11 +78,9 @@ WSGI_APPLICATION = 'BookTime.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'booktime',
-        'USER':'jona',
-        'HOST':'127.0.0.1',
-        'PASSWORD':'nathanoj35'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME':os.path.join(BASE_DIR,'site.db'),
+       
     }
 }
 
@@ -125,6 +123,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS=(os.path.join(BASE_DIR,'static'),)
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 #crispy forms 
 CRISPY_TEMPLATE_PACK='bootstrap4'
