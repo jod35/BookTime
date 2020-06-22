@@ -11,6 +11,7 @@ gunicorn = "*"
 whitenoise = "*"
 django-crispy-forms = "*"
 django-taggit = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.8"
